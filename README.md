@@ -1,56 +1,27 @@
-body {
-  font-size: 1.2em;
-  font-family: sans-serif;
-  font-weight: 100;
-  
-}
-h1 {
-    color: #4caf50;
-    font-family: verdana;
-    font-size: 300%;
-}
-.home{
-text-align: center;
-vertical-align: middle;
-line-height: 90px;   
-}
-.error {
-  color: red;
-  font-weight: bold;
-  display: none;
+(function (window) {
+// STEP 2: Wrap the entire contents of SpeakHello.js inside of an IIFE
+// See Lecture 52, part 2
+
+
+// STEP 3: Create an object, called 'helloSpeaker' to which you will attach
+// the "speak" method and which you will expose to the global context
+// See Lecture 52, part 1
+var helloSpeaker = {};
+
+// DO NOT attach the speakWord variable to the 'helloSpeaker' object.
+var speakWord = "Hello";
+
+// STEP 4: Rewrite the 'speak' function such that it is attached to the
+// helloSpeaker object instead of being a standalone function.
+// See Lecture 52, part 2
+helloSpeaker.speak = function (name) {
+  console.log(speakWord + " " + name);
 }
 
-.loading-icon {
-  position: absolute;
-  left: 50%;
-  top: 10px;
-}
+// STEP 5: Expose the 'helloSpeaker' object to the global scope. Name it
+// 'helloSpeaker' on the global scope as well.
+// See Lecture 52, part 2
+// (Note, Step 6 will be done in the SpeakGoodBye.js file.)
+window.helloSpeaker = helloSpeaker;
 
-li[ui-sref]:hover {
-  display: inline-block;
-  cursor: pointer;
-  border: dotted hotpink 1px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color:green;
-  font-family: sans-serif;
-}
-
-a:link {
-    color: red;
-}
-
-/* visited link */
-a:visited {
-    color: green;
-}
-
-/* mouse over link */
-a:hover {
-    color: hotpink;
-}
-
-/* selected link */
-a:active {
-    color: blue;
-}
+})(window);
